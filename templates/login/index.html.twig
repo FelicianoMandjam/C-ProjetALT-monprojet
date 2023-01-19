@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LoginController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+h1{
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+}
+form {
+  background-color: #f2f2f2;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 0px #aaa;
+  text-align: center;
+}
+
+label {
+  font-weight: bold;
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+  display: block;
+}
+
+input[type="email"], input[type="password"] {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #555;
+}
+
+input[type="submit"] {
+  width: 50%;
+  background: linear-gradient(115deg,#323131  10%,red 90%);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+</style>
+
+<h1> Page de Connexion </h1>
+
+<form>
+   
+  <label for="email">Email de connexion:</label>
+  <input type="email" id="email" name="email"><br><br>
+  <label for="password">Mot de passe   :</label>
+  <input type="password" id="password" name="password"><br><br>
+  <input type="submit" value="Se connecter">
+</form>
+
+
+{% endblock %}
