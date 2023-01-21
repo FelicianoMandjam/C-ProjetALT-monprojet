@@ -6,6 +6,48 @@
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+   
+.button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+
+.button {
+  --border-right: 6px;
+  --text-stroke-color: rgba(255,255,255,0.6);
+  --animation-color: #37FF8B;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+}
 
     h1 ,h3{
         justify-content: center;
@@ -40,11 +82,56 @@
         text-align:center;
         width:98%;
     }
+
+    .btn:link,
+.btn:visited {
+ text-transform: uppercase;
+ text-decoration: none;
+ color: rgb(27, 27, 27);
+ padding: 10px 30px;
+ border: 1px solid;
+ border-radius: 1000px;
+ display: inline-block;
+ transition: all .2s;
+ position: relative;
+}
+
+.btn:hover {
+ transform: translateY(-5px);
+ box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+}
+
+.btn:active {
+ transform: translateY(-3px);
+}
+
+.btn::after {
+ content: "";
+ display: inline-block;
+ height: 100%;
+ width: 100%;
+ border-radius: 100px;
+ top: 0;
+ left: 0;
+ position: absolute;
+ z-index: -1;
+ transition: all .3s;
+}
+
+.btn:hover::after {
+ background-color: rgb(0, 238, 255);
+ transform: scaleX(1.4) scaleY(1.5);
+ opacity: 0;
+}
     
     
 </style>
 
-<h1>SPORT.FELICIANO </h1>
+<h1><button data-text="Awesome" class="button">
+    <span class="actual-text">&nbsp;Sport.FELICIANO&nbsp;</span>
+    <span class="hover-text" aria-hidden="true">&nbsp;Sport.FELICIANO&nbsp;</span>
+</button></h1>
+
 </br>
 </br>
 <h3>Bienvenue sur notre blog dédié au sport ! Vous y trouverez des articles sur les dernières actualités sportives, des conseils pour améliorer votre performance, ainsi que des histoires inspirantes de sportifs de tous niveaux. Rejoignez notre communauté passionnée de sportifs et de passionnés de sport pour rester informé et inspiré. Commençons notre voyage sportif ensemble! </h3>
@@ -84,17 +171,23 @@ En pratiquant régulièrement la musculation, on peut améliorer sa condition ph
 <h4 class="text-center text-white"> Les pricipales salles de sport en région parisienne </h4>
 
 <div class="list-group">
-  <a href="https://www.fitnesspark.fr/" class="list-group-item list-group-item-action " aria-current="true">
+
+
+  <a href="https://www.fitnesspark.fr/" class="btn list-group-item list-group-item-action " aria-current="true">
     FitnessPark <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
   <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
   <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
 </svg> </span>
   </a>
-  <a href="https://www.basic-fit.com/fr-fr/home?gclid=Cj0KCQiA8aOeBhCWARIsANRFrQFpOdUQBW1fLF-T5fkUKdC4uOWok-DMCjRpIF0d1MaYPz__UWI65F8aAqBeEALw_wcB" class="list-group-item list-group-item-action">BasicFit<span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+
+
+  <a href="https://www.basic-fit.com/fr-fr/home?gclid=Cj0KCQiA8aOeBhCWARIsANRFrQFpOdUQBW1fLF-T5fkUKdC4uOWok-DMCjRpIF0d1MaYPz__UWI65F8aAqBeEALw_wcB" class="btn list-group-item list-group-item-action">BasicFit<span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
   <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
   <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
 </svg> </span></a>
-  <a href="https://gigafit.fr/les-clubs/?gclid=Cj0KCQiA8aOeBhCWARIsANRFrQGa3vHE7vSKpnCmdfB-vKNXkWmuC93V7YCPiBURCVA5_qJRbP1PtQMaAmVtEALw_wcB" class="list-group-item list-group-item-action">GigaFit <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+
+
+  <a href="https://gigafit.fr/les-clubs/?gclid=Cj0KCQiA8aOeBhCWARIsANRFrQGa3vHE7vSKpnCmdfB-vKNXkWmuC93V7YCPiBURCVA5_qJRbP1PtQMaAmVtEALw_wcB" class="btn list-group-item list-group-item-action">GigaFit <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
   <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
   <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
 </svg> </span></a>
